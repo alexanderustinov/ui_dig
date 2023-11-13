@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
-project(HelloWorld CXX)
+project(ui_dig CXX)
 
-include(FindOpenGL)
-
-include_directories( include external/imgui ${OPENGL_INCLUDE_DIRS} )
+include_directories( include external/imgui )
 
 add_executable(ui_dig
     src/main.cpp
