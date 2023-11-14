@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.11)
 project(ui_dig CXX)
 
 find_package(OpenGL REQUIRED)
+find_package(SDL2 REQUIRED)
 
-include_directories( include external/imgui ${OPENGL_INCLUDE_DIR} )
+include_directories( include external/imgui ${OPENGL_INCLUDE_DIR} ${SDL2_INCLUDE_DIR} )
 
 add_executable(ui_dig
     src/main.cpp
@@ -13,13 +14,7 @@ add_executable(ui_dig
     external/imgui/imgui_draw.cpp
     external/imgui/imgui_demo.cpp
     external/imgui/backends/imgui_impl_opengl3.cpp
-    external/imgui/backends/imgui_impl_win32.cpp
+    external/imgui/backends/imgui_impl_sdl2.cpp
     )
 
-if (WIN32)
-    SET (LIBS dwmapi ${OPENGL_LIBRARIES})
-else() 
-    SET(LIBS ${OPENGL_LIBRARIES})
-endif (WIN32)
-
-target_link_libraries(ui_dig ${LIBS})
+target_link_libraries(ui_dig  ${OPENGL_LIBRARIES} ${SDL2_LIBRARIES})
