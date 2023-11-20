@@ -130,6 +130,7 @@ int main(int, char**)
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
+        ImGui::GetWindowDrawList()->AddLine(ImVec2(25, 25), ImVec2(150, 150), IM_COL32(255, 0, 0, 255), 5.0f);
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         if (show_demo_window)
@@ -155,6 +156,7 @@ int main(int, char**)
             ImGui::Text("counter = %d", counter);
 
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+           
             ImGui::End();
         }
 
@@ -167,6 +169,8 @@ int main(int, char**)
                 show_another_window = false;
             ImGui::End();
         }
+
+        
 
         // Rendering
         ImGui::Render();
