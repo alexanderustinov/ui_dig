@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.11)
 project(ui_dig CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) 
+
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
 
@@ -17,4 +19,4 @@ add_executable(ui_dig
     external/imgui/backends/imgui_impl_sdl2.cpp
     )
 
-target_link_libraries(ui_dig  ${OPENGL_LIBRARIES} ${SDL2_LIBRARIES})
+target_link_libraries(ui_dig ${OPENGL_LIBRARIES} ${SDL2_LIBRARIES} )
